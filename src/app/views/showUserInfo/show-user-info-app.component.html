@@ -1,0 +1,26 @@
+<div class="container card card-body">
+    <h3 class="card-title">
+        Información del usuario {{employee.name}}
+    </h3>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="name">Nombre:</label>
+        </div>
+        <div class=" col-md-6">
+            <label for="name">{{ employee.name }}</label>
+        </div>
+        <div class="col-md-6">
+            <label for="country">País:</label>
+        </div>
+        <div class="col-md-6">
+            <label for="country">{{ employee.country }}</label>
+        </div>
+        <div class="col-md-6">
+            <label for="birthDate">Fecha de nacimiento:</label>
+        </div>
+        <div class="col-md-6">
+            <label for="birthDate">{{ employee.birthDate }}</label>
+        </div>
+        <button class="btn btn-info col-md-2 mt-4 offset-1" (click)="volver()">Volver</button>
+    </div>
+</div>

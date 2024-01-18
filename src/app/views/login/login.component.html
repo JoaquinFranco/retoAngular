@@ -1,0 +1,21 @@
+<div class="container col-md-6">
+  <div class="card mt-4">
+    <div class="card-body">
+      <h3 class="card-title">
+        Login
+      </h3>
+      <div class="row">
+        <div class="formGroup col-md-12">
+          <label for="name">Nombre:</label>
+          <input type="text" [(ngModel)]="employee.name" id="name" placeholder="Inserta nombre" class="form-control">
+        </div>
+        <div class="formGroup col-md-12">
+          <label for="pass">Contraseña</label>
+          <input type="password" [(ngModel)]="employee.pass" id="pass" placeholder="Inserta Contraseña" class="form-control">
+        </div>
+        <button class="btn btn-primary col-md-4 mt-4 offset-1" type="submit" (click)="login()">Iniciar Sesión</button>
+        <button class="btn btn-info col-md-4 mt-4 offset-1" (click)="showRegister()">Registrar nuevo usuario</button>
+      </div>
+    </div>
+  </div>
+</div>

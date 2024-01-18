@@ -1,0 +1,57 @@
+<div class="container">
+    <div *ngIf="isShowInfoUser">
+      <app-show-user-info-app [employee]="selectedEmployee"
+      (showUserInfo)="isShowUserInfo()"></app-show-user-info-app>
+    </div>
+    <div *ngIf="!isShowInfoUser" class="row  mt-4">
+      <ul class="list-group">
+        <li 
+        *ngFor="let employee of employeeArr"
+        class="list-group-item list-group-item-action"
+        (click)="selectEmployee(employee)"
+        [class.active]="employee == selectedEmployee"
+        >
+        <span class="badge bg-primary badge-pill">
+          {{ employee.id }}
+        </span>
+        <div class="row">
+          <div class="col-md-3">{{ employee.name }}</div>
+          <div class="col-md-3">{{ employee.country }}</div>
+          <div class="col-md-3">{{ employee.birthDate }}</div>
+          <div class="col-md-3"><button  class="btn btn-info" (click)="showUserInfo(employee)">Mostrar información</button></div>
+        </div>
+      </li>
+      </ul>
+      <div class="card mt-4">
+        <div class="card-body">
+            <div class="row" *ngIf="isSelectEmployee">
+                <div class="card-title">
+                    Edita el usuario seleccionado
+                </div>
+                <div class="formGroup col-md-6">
+                    <label for="name">Nombre:</label>
+                    <input type="text" [(ngModel)]="selectedEmployee.name" id="name" placeholder="Inserta nombre" class="form-control">
+                  </div>
+                  <div class="formGroup col-md-6">
+                    <label for="country">País:</label>
+                    <input type="text" [(ngModel)]="selectedEmployee.country" id="country" placeholder="Inserta country" class="form-control">
+                  </div>
+                  <div class="formGroup col-md-6 mt-4">
+                    <label for="birthDate">Fecha de nacimiento</label>
+                    <input type="date" [(ngModel)]="selectedEmployee.birthDate" id="birthDate" placeholder="Inserta Fecha" class="form-control">
+                  </div>
+                  <div class="formGroup col-md-6 mt-4">
+                    <label for="pass">Contraseña</label>
+                    <input type="password" [(ngModel)]="selectedEmployee.pass" id="pass" placeholder="Inserta Contraseña" class="form-control">
+                  </div>
+                  <button class="btn btn-primary col-md-2 mt-4" type="submit" (click)="edit()">Editar usuario</button>
+            </div>
+            <button class="btn btn-primary col-md-2 mt-4" type="submit" (click)="goToRegister()">Registrar usuario</button>
+            <button *ngIf="isSelectEmployee" class="btn btn-danger col-md-2 mt-4 offset-1" type="danger" (click)="deleteEmployee()">Borrar</button>
+            <button *ngIf="isSelectEmployee" class="btn btn-info col-md-2 mt-4 offset-1" (click)="unselectEmployee()">Quitar selección</button>
+            <button class="btn btn-info col-md-2 align-right mt-4 offset-1" (click)="closeSesion()">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
